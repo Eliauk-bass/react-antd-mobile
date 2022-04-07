@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### demo
+
+demo1(列表拖拽排序):
+npm install sortablejs --save //使用npm装包
+import Sortable from "sortablejs"; //引入Sortable

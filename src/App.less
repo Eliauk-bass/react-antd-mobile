@@ -1,0 +1,74 @@
+.App {
+    text-align: center;
+    .main {
+        padding-top: constant(safe-area-inset-top); 
+        padding-top: env(safe-area-inset-top); 
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+        padding-right: constant(safe-area-inset-right); 
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom); 
+        padding-bottom: env(safe-area-inset-bottom); 
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: #F9F9F9;
+        .top{
+          background-color: #c3f5cd;
+          height: 56px;
+          display: flex;
+          align-items: center; /*定义body的元素垂直居中*/
+          justify-content: center; /*定义body的里的元素水平居中*/
+          position: fixed;
+          width: 100%;
+          margin: 0 auto;
+          /* //top:0; */
+          z-index: 99;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .content {
+          /* //margin-bottom: 50px;
+          //padding: 0; */
+          margin-top:56px; 
+          margin-bottom:50px; 
+        }
+        .footer{
+          position: absolute;
+          width: 100%;
+          margin: 0 auto;
+          bottom: 0;
+          z-index: 99;
+          height: 40px;
+        }
+      }
+  }
+  
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
