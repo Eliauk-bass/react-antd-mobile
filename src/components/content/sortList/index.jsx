@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Accordion, List } from 'antd-mobile';
+import { Accordion, List, Card, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
 // Default SortableJS
 import Sortable from 'sortablejs';
 import './index.less';
@@ -14,20 +14,26 @@ class Content extends Component {
   }
 
   componentDidMount() {
-    let {menus} = this.state
-    for (let i=1; i<11;i++){
+    let { menus } = this.state
+    for (let i = 1; i < 21; i++) {
       menus.push({
-        key:i,
-        name:`item${i}`
+        key: i,
+        name: '马来西亚公司',
+        score:2.51
       })
     }
-    this.setState({menus})
+    this.setState({ menus })
   }
 
   sortableGroupDecorator = componentBackingInstance => {
     if (componentBackingInstance) {
       let options = {
-        draggable: ".rows",
+        draggable: ".rows", // 允许拖拽的项目类名
+        forceFallback: true, // flse 忽略 HTML5拖拽行为，强制回调进行
+        group: 'shared', // set both lists to same group
+        animation: 150,//number 单位：ms，定义排序动画的时间；
+        delay: 200,//number 定义鼠标选中列表单元可以开始拖动的延迟时间；
+        // handle: ".my-handle", // 格式为简单css选择器的字符串，使列表单元中符合选择器的元素成为拖动的手柄，只有按住拖动手柄才能使列表单元进行拖动
         // 列表的任何更改都会触发
         onSort: evt => {
           let { menus } = this.state
@@ -50,16 +56,26 @@ class Content extends Component {
   };
   renderSelectedItemView = (item, i) => {
     return (
-      <Accordion className="rows" onChange={this.onChange}>
-        <Accordion.Panel header={item.name} data-id={item.key} className="pad">
-          <div>this is panel content2 or other</div>
-          <div>this is panel content2 or other</div>
-          <div>this is panel content2 or other</div>
-        </Accordion.Panel>
-      </Accordion>
+      // <Accordion className="rows" onChange={this.onChange}>
+      //   <Accordion.Panel header={item.name} data-id={item.key} className="pad">
+      //     <div>this is panel content2 or other</div>
+      //     <div>this is panel content2 or other</div>
+      //     <div>this is panel content2 or other</div>
+      //   </Accordion.Panel>
+      // </Accordion>
       // <List className="rows">
       //   <Item>{item}</Item>
       // </List>
+      <Card className="rows">
+        <Card.Body data-id={item.key} className="pad">
+          <div className='rowDiv'>
+            {/* <Icon className='my-handle' type='ellipsis'/> */}
+            <span>{item.key}</span>
+            <span>{item.name}</span>
+            <span>{item.score}</span>
+          </div>
+        </Card.Body>
+      </Card>
     )
   }
   render() {
